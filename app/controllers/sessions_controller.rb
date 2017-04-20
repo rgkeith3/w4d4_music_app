@@ -6,9 +6,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     if @user
-      login
-      render json: params
-      #redirect_to music_url
+      login(@user)
+      redirect_to user_url(@user)
     else
       flash[:errors] = ["Username and Password don't match"]
       render :new
@@ -16,9 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    current_user.reset_session_token!
+    session[:session_token] = nil
+    redirect_to new_sessions_url
   end
-
-  private
-
-
 end

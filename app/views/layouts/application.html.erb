@@ -9,6 +9,15 @@
   </head>
 
   <body>
+
+    <% if current_user %>
+      <h3>Hello, <%= current_user.email %>!</h3>
+
+      <%= button_to "Logout", sessions_url, method: :delete %>
+    <% end %>
+
+    <h3> Music App! </h3>
+
     <%= yield %>
   </body>
 </html>
