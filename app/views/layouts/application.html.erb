@@ -14,9 +14,14 @@
       <h3>Hello, <%= current_user.email %>!</h3>
 
       <%= button_to "Logout", sessions_url, method: :delete %>
+    <% else %>
+      <%= button_to "Login", new_sessions_url, method: :get %>
+      <%= button_to "Sign up", new_user_url, method: :get %>
     <% end %>
 
     <h3> Music App! </h3>
+
+    <%= render "shared/errors" %>
 
     <%= yield %>
   </body>
