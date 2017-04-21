@@ -1,0 +1,4 @@
+<h2>New Album by <%= @band.name %> </h2>
+
+<%= render 'form', album: @album, band_id: @band.id,
+  action_url: albums_url, method: 'post' %>

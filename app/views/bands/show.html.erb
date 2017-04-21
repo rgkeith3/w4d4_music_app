@@ -9,6 +9,6 @@
       <li><%= album.title %></li>
     <% end %>
   </ul>
-
+  <%= button_to "Add new Album", new_band_album_url(@band), method: :get %>
   <%= button_to "Edit this band", edit_band_url(@band), method: :get %>
   <%= button_to "Destroy this band", band_url(@band), method: :delete %>
