@@ -4,7 +4,7 @@
 
   <ul>
     <% @bands.each do |band| %>
-      <li><%= band.name %></li>
+      <li><%= link_to "#{band.name}", band_url(band) %></li>
       <!-- Later: replace with link to band's show page -->
     <% end %>
   </ul>
